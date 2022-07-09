@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+    {% block content %}
+    <style>
+        body{
+                background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+            }
+            .wrapper{margin:10vh}
+            .arial { font-family: Arial; }
+            .btn-grad {
+                background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+                margin: 5px;
+                padding: 8px 25px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                box-shadow: 0 0 20px #eee;
+                border-radius: 10px;
+                display: block;
+              }
+    
+              .btn-grad:hover {
+                background-position: right center; /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+              }    
+            //post card styles
+            
+    
+    
+    </style>
+
+    <div class='container my-2 py-2'> 
+        <div class="row">
+                <div class="col text-center mb-5">
+                   <h1 class="display-4">Publish your passions, your way</h1>
+            <p class="lead">Create a unique and beautiful blog easily </p>
+                </div>
+              </div>    
+     <form method = "POST">
+             {% csrf_token %}
+             {{form.as_p}}
+             {{form.media}}
+             <button class="btn-grad">Post</button>
+                     
+       
+         
+            
+     </div>
+
+     
+    
+    {% endblock content %}

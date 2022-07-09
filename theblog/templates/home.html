@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<style>
+
+  @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+    .card:hover{
+      transform: scale(1.02);
+   box-shadow: 0 40px 40px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+ }
+
+   
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    a:link { text-decoration: none; }
+
+
+    a:visited { text-decoration: none; }
+
+
+    a:hover { text-decoration: none; }
+
+
+    a:active { text-decoration: none; }
+    body {
+      font-family: "Quicksand", sans-serif;
+      
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background: #7f7fd5;
+      background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin-block: 2rem;
+      gap: 2rem;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: clamp(35rem, calc(20rem + 2vw), 22rem);
+      overflow: hidden;
+      box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+      border-radius: 1.5em;
+      background: #ECE9E6;
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    
+    }
+    
+    
+    
+    .card__body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    
+    
+    .tag {
+
+      text-align: center;
+      align-self: flex-start;
+      padding: .25em .75em;
+      border-radius: 1em;
+      font-size: .85rem;
+    }
+    
+  
+    .tag-blue {
+      
+      background: #56CCF2;
+    background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+      color: #fafafa;
+    }
+    
+    .tag-brown {
+      background: #D1913C;
+    background: linear-gradient(to bottom, #FFD194, #D1913C);
+      color: #fafafa;
+    }
+    
+    .tag-red {
+      background: #56CCF2;
+      background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+        color: #fafafa;
+    }
+    
+    .card__body h4 {
+      font-size: 1.5rem;
+      text-transform: capitalize;
+    }
+    
+    .card__footer {
+      display: flex;
+      padding: 1rem;
+      margin-top: auto;
+    }
+    
+    .user {
+      display: flex;
+      gap: .5rem;
+    }
+    
+    .user__image {
+      border-radius: 50%;
+    }
+    
+    .user__info > small {
+      color: #666;
+    }
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% for post in object_list %}
+<div class="container">
+    <div class="card">
+     
+      <div class="card__body">
+        
+        <h4>{{post.title}}</h4>
+        <p>{{post.snippet}}</p>
+        <a href="{% url 'article-detail' post.pk %}"   <span class="tag tag-blue">Read Blog</span></a>  <a href="{% url 'category' post.category %}"  data-inline="true"<span class="tag tag-blue">{{post.category}}</span></a>
+      </div>
+      <div class="card__footer">
+        <div class="user">
+          <img src="https://i.pravatar.cc/40?img=1 " alt="user__image" class="user__image">
+          <div class="user__info">
+            <h5>{{post.author}}</h5> 
+            <small>{{post.post_date}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+   
+</div>
+
+{% endfor %} 
+
+
+
+ 
+     
+{% endblock content %}

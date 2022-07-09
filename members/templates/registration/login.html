@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+ 
+    {% block content %}
+   
+    <style>
+        .container{
+            text-align: center;
+  }
+        body{
+                background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+            }
+    </style>   
+
+    <div class='container my-5 py-5'> 
+        <div class="row">
+                <div class="col text-center mb-5">
+                   <h1 class="display-4">Login Now!</h1>
+            <p class="lead">Login to enjoy all the features..</p>
+                </div>
+              </div>    
+
+     
+     <form method = "POST">
+             {% csrf_token %}
+             {{form.as_p}}
+             <button class="btn btn-primary">login</button>
+            
+     </div> 
+    {% endblock content %}
